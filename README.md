@@ -112,9 +112,21 @@ Create a separate GitHub repository with your Lambda functions. Include a
 `buildspec.yml` file for CodeBuild and organize your code with `producer/` and
 `consumer/` directories.
 
-**Important**: Deploy your Lambda functions repository first before triggering
-the pipeline. The Lambda functions expect code to be available in S3 from your
-first pipeline run.
+**Important**: The infrastructure includes placeholder Lambda functions that will be automatically replaced when you deploy your actual code via CodePipeline. The placeholders are minimal working functions that prevent deployment errors and allow the infrastructure to be created successfully.
+
+### How It Works
+
+1. **Initial Deployment**: Terraform creates placeholder Lambda functions with minimal Python code
+2. **GitHub Setup**: You create a separate repository with your actual Lambda functions
+3. **CodePipeline Activation**: Activate the CodeStar connection in AWS Console
+4. **Automatic Replacement**: When you push code to GitHub, CodePipeline automatically builds and deploys your functions, replacing the placeholders
+
+### Benefits of This Approach
+
+- **No Manual Zip Files**: Everything is automated via Terraform and CodePipeline
+- **Works Out of the Box**: Anyone can clone and deploy without errors
+- **CI/CD Ready**: Push code changes and they're automatically deployed
+- **Clean Separation**: Infrastructure and application code in separate repositories
 
 ### Lambda Repository Structure
 

@@ -25,6 +25,7 @@ resource "aws_lambda_function" "producer" {
   depends_on = [
     aws_iam_role_policy.producer_lambda_policy,
     aws_cloudwatch_log_group.producer_lambda_logs,
+    aws_s3_object.producer_placeholder,
   ]
 }
 
@@ -49,6 +50,7 @@ resource "aws_lambda_function" "consumer" {
   depends_on = [
     aws_iam_role_policy.consumer_lambda_policy,
     aws_cloudwatch_log_group.consumer_lambda_logs,
+    aws_s3_object.consumer_placeholder,
   ]
 }
 
