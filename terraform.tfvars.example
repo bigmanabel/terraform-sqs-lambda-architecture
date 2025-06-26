@@ -1,0 +1,9 @@
+aws_region   = 
+project_name =
+github_owner  = 
+github_repo   =
+github_branch = 
+
+# The Lambda functions will be deployed automatically via CodePipeline from the GitHub repository
+# A CodeStar connection will be created automatically and needs to be activated in the AWS Console
+# After deployment, go to AWS Console > Developer Tools > Settings > Connections to activate the connection
